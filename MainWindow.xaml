@@ -1,0 +1,26 @@
+﻿<Window x:Class="CourseProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Основы кодирования"
+        Height="720" Width="1080"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource DarkBackgroundBrush}">
+
+    <DockPanel Margin="20">
+        <!-- Нижняя панель с авторством -->
+        <TextBlock DockPanel.Dock="Bottom"
+                   Text="Курсовой проект Батырханова Армана — группа СИБ-22-5"
+                   Style="{StaticResource CaptionTextStyle}"
+                   HorizontalAlignment="Right"
+                   Margin="0,10,0,0"/>
+
+        <!-- Центральная сетка с кнопками -->
+        <UniformGrid Rows="3" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Анализ энтропии" Tag="1" Style="{StaticResource GradientButtonStyle}" Click="OpenLab"/>
+            <Button Content="Алгоритмы кодирования" Tag="2" Style="{StaticResource GradientButtonStyle}" Click="OpenLab"/>
+            <Button Content="Шумовой канал и фильтрация" Tag="3" Style="{StaticResource GradientButtonStyle}" Click="OpenLab"/>
+            <Button Content="Сжатие и архивация текста" Tag="4" Style="{StaticResource GradientButtonStyle}" Click="OpenLab"/>
+            <Button Content="Сжатие изображений" Tag="5" Style="{StaticResource GradientButtonStyle}" Click="OpenLab"/>
+        </UniformGrid>
+    </DockPanel>
+</Window>

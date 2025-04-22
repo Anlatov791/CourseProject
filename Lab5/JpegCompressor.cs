@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using CourseProject.Lab2;
+using CourseProject.Lab4;
 
 namespace CourseProject.Lab5
 {

@@ -27,6 +27,7 @@
                 <Button Content="Сохранить бинарный файл" Click="SaveBinaryFileButton_Click" Style="{StaticResource GradientButtonStyle}"/>
                 <Button Content="Выбрать директорию" Click="SelectSaveDirectoryButton_Click" Style="{StaticResource GradientButtonStyle}"/>
                 <Button Content="Очистить" Click="ClearButton_Click" Style="{StaticResource GradientButtonStyle}"/>
+                <Button Content="Сжать RLE" Click="CompressRleButton_Click" Style="{StaticResource GradientButtonStyle}"/>
             </WrapPanel>
 
             <!-- Текстовые блоки -->

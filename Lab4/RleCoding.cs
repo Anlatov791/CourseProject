@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CourseProject.Lab5
+namespace CourseProject.Lab4
 {
     public class RleCoding : IEncodingAlgorithm
     {

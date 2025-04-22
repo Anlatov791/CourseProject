@@ -31,7 +31,23 @@ namespace CourseProject.Lab4
             InputFileSizeTextBox.Text = "Размер исходного файла";
             CompressedFileSizeTextBox.Text = "Размер сжатого файла";
         }
-        
+        private RleCoding rleCoder = new();
+
+        private void CompressRleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(InputTextBox.Text) || InputTextBox.Text == "Содержимое файла")
+            {
+                MessageBox.Show("Пожалуйста, загрузите текст для сжатия.", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            inputText = InputTextBox.Text;
+            encodedText = rleCoder.Encode(inputText);
+    
+            CompressedTextBox.Text = encodedText;
+            MessageBox.Show("Сжатие методом RLE выполнено успешно!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             ClearData();

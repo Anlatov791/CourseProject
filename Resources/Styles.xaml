@@ -3,85 +3,77 @@
 
     <!-- Градиентные кисти -->
     <LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0" EndPoint="1,1">
-        <GradientStop Color="#FF4A90E2" Offset="0.0"/>
-        <GradientStop Color="#FF007ACC" Offset="1.0"/>
+        <GradientStop Color="#FFCCCCCC" Offset="0.0"/>
+        <GradientStop Color="#FFAAAAAA" Offset="1.0"/>
     </LinearGradientBrush>
     
-    <SolidColorBrush x:Key="PurpleBrush" Color="#FF6200EE"/>
-    <SolidColorBrush x:Key="DarkBackgroundBrush" Color="#FF1E1E2F"/>
-    <SolidColorBrush x:Key="LightGrayBrush" Color="LightGray"/>
-    <SolidColorBrush x:Key="LightBackgroundBrush" Color="#FFF0F0F0"/>
+    <SolidColorBrush x:Key="PurpleBrush" Color="#FF000000"/>
+    <SolidColorBrush x:Key="DarkBackgroundBrush" Color="White"/>
+    <SolidColorBrush x:Key="LightGrayBrush" Color="Black"/>
+    <SolidColorBrush x:Key="LightBackgroundBrush" Color="#FFF5F5F5"/>
 
     <!-- Эффекты -->
     <DropShadowEffect x:Key="DropShadow"
-                      Color="Black"
+                      Color="Gray"
                       Direction="320"
                       ShadowDepth="4"
                       Opacity="0.4"
                       BlurRadius="10"/>
 
     <!-- Стиль для главных кнопок (градиентные) -->
-    <Style x:Key="GradientButtonStyle" TargetType="Button">
-        <Setter Property="FontSize" Value="28"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="10"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Padding" Value="20,10"/>
-        <Setter Property="Width" Value="300"/>
-        <Setter Property="Height" Value="120"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="20"
-                            Background="{StaticResource BlueGradientBrush}"
-                            SnapsToDevicePixels="True"
-                            Effect="{StaticResource DropShadow}">
-                        <Border.RenderTransform>
-                            <ScaleTransform ScaleX="1" ScaleY="1"/>
-                        </Border.RenderTransform>
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{TemplateBinding Content}"
-                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                   Padding="10,5"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    
-    <!-- Стиль для вторичных кнопок (фиолетовые) -->
-    <Style x:Key="SecondaryButtonStyle" TargetType="Button">
-        <Setter Property="Margin" Value="10"/>
-        <Setter Property="Padding" Value="10,5"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Background" Value="{StaticResource PurpleBrush}"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="Width" Value="200"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}"
-                            CornerRadius="5">
-                        <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    
-    <!-- Стиль для компактных кнопок (фиолетовые) -->
+<Style x:Key="GradientButtonStyle" TargetType="Button">
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Margin" Value="10"/>
+    <Setter Property="Cursor" Value="Hand"/>
+    <Setter Property="Padding" Value="15,10"/>
+    <Setter Property="Width" Value="250"/>
+    <Setter Property="Height" Value="80"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="Button">
+                <Border x:Name="Border"
+                        CornerRadius="15"
+                        Background="{StaticResource BlueGradientBrush}"
+                        SnapsToDevicePixels="True"
+                        Effect="{StaticResource DropShadow}">
+                    <Border.RenderTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    </Border.RenderTransform>
+                    <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"/>
+                </Border>
+                <ControlTemplate.Triggers>
+                    <!-- Анимация при наведении -->
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="Border" Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#FFAAAAAA" Offset="0.0"/>
+                                    <GradientStop Color="#FF888888" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter TargetName="Border" Property="RenderTransform">
+                            <Setter.Value>
+                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Setter.Value>
+    </Setter>
+</Style>
+    <!-- Стиль для компактных кнопок -->
     <Style x:Key="CompactButtonStyle" TargetType="Button">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="{StaticResource PurpleBrush}"/>
+        <Setter Property="Background" Value="Black"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Padding" Value="10,5"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -108,7 +100,7 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Width" Value="50"/>
-        <Setter Property="BorderBrush" Value="{StaticResource PurpleBrush}"/>
+        <Setter Property="BorderBrush" Value="Black"/>
         <Setter Property="BorderThickness" Value="1"/>
     </Style>
     
@@ -121,7 +113,7 @@
         <Setter Property="Width" Value="350"/>
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Background" Value="White"/>
-        <Setter Property="BorderBrush" Value="{StaticResource PurpleBrush}"/>
+        <Setter Property="BorderBrush" Value="Black"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -133,12 +125,13 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="20"/>
+        <Setter Property="Foreground" Value="Black"/>
     </Style>
     
     <!-- Стиль для подписей -->
     <Style x:Key="CaptionTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="Foreground" Value="{StaticResource LightGrayBrush}"/>
+        <Setter Property="Foreground" Value="Black"/>
     </Style>
 
 </ResourceDictionary>

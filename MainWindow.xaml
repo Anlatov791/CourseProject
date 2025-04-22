@@ -7,20 +7,30 @@
         Background="{StaticResource DarkBackgroundBrush}">
 
     <DockPanel Margin="20">
-        <!-- Нижняя панель с авторством -->
-        <TextBlock DockPanel.Dock="Bottom"
-                   Text="Курсовой проект Батырханова Армана — группа СИБ-22-5"
+        <!-- Верхняя панель с авторством -->
+        <TextBlock DockPanel.Dock="Top"
+                   Text="Курсовой проект Болатбекова Ануара — группа СИБ-22-5"
                    Style="{StaticResource CaptionTextStyle}"
-                   HorizontalAlignment="Right"
-                   Margin="0,10,0,0"/>
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,10"/>
 
         <!-- Центральная сетка с кнопками -->
-        <UniformGrid Rows="3" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="Анализ энтропии" Tag="1" Style="{StaticResource GradientButtonStyle}" Click="OpenLab"/>
-            <Button Content="Алгоритмы кодирования" Tag="2" Style="{StaticResource GradientButtonStyle}" Click="OpenLab"/>
-            <Button Content="Шумовой канал и фильтрация" Tag="3" Style="{StaticResource GradientButtonStyle}" Click="OpenLab"/>
-            <Button Content="Сжатие и архивация текста" Tag="4" Style="{StaticResource GradientButtonStyle}" Click="OpenLab"/>
-            <Button Content="Сжатие изображений" Tag="5" Style="{StaticResource GradientButtonStyle}" Click="OpenLab"/>
-        </UniformGrid>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Лабораторная работа 1" Tag="1" Style="{StaticResource GradientButtonStyle}" Click="OpenLab" Grid.Row="0" Grid.Column="0"/>
+            <Button Content="Лабораторная работа 2" Tag="2" Style="{StaticResource GradientButtonStyle}" Click="OpenLab" Grid.Row="0" Grid.Column="1"/>
+            <Button Content="Лабораторная работа 3" Tag="3" Style="{StaticResource GradientButtonStyle}" Click="OpenLab" Grid.Row="1" Grid.Column="0"/>
+            <Button Content="Лабораторная работа 4" Tag="4" Style="{StaticResource GradientButtonStyle}" Click="OpenLab" Grid.Row="1" Grid.Column="1"/>
+            <Button Content="Лабораторная работа 5" Tag="5" Style="{StaticResource GradientButtonStyle}" Click="OpenLab" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+        </Grid>
     </DockPanel>
 </Window>
